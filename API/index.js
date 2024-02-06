@@ -5,10 +5,10 @@ const { Transaction } = require('@ethereumjs/tx')
 const app = express();
 const port = 3000;
 
-// Ethereum node URL or Infura URL
+
 const ethereumNodeUrl = 'https://mainnet.infura.io/v3/5944ae3272a84e4d9c88542677daa845';
 
-// Private key for the Hardhat wallet account (for simplicity)
+
 const privateKey = Buffer.from('0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80', 'hex');
 
 // ABI for the SwappingAggregator contract
