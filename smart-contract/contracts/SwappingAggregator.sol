@@ -19,8 +19,7 @@ contract SwappingAggregator {
     address _tokenOut,
     uint256 _amountIn,
     uint256 _amountOutMin
-    ) external {
-        IERC20(_tokenIn).approve(address(this), _amountIn);
+    ) external { 
         // Ensuring your contract has received the required tokenIn amount.
         require(IERC20(_tokenIn).transferFrom(msg.sender, address(this), _amountIn),"Transfer of tokenIn failed");
         IERC20(_tokenIn).approve(address(uniswapRouter), _amountIn);
@@ -28,14 +27,21 @@ contract SwappingAggregator {
         path[0] = _tokenIn;
         path[1] = _tokenOut;
         // Call the Uniswap V2 swap function.
-         uniswapRouter.swapExactTokensForTokens(
+        uniswapRouter.swapExactTokensForTokens(
         _amountIn,
         _amountOutMin,
         path,
         address(this),
         block.timestamp
         );
-        // return amounts[1];
+        
 }
+    function balance(address _token) external view returns (uint){
+            return IERC20(_token).balanceOf(address(this));
+        }
+
+    receive() external payable {
+    
+    }
 
 }
