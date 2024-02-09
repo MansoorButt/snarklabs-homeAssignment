@@ -16,7 +16,7 @@ const privateKey = "0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4
 const aggregatorAbi = abi
 
 // Contract address of the deployed SwappingAggregator
-const aggregatorAddress = "0x15F2ea83eB97ede71d84Bd04fFF29444f6b7cd52";
+const aggregatorAddress = "0x057cD3082EfED32d5C907801BF3628B27D88fD80";
 
 // Hardcoded swap routes of Uniswap and SushiSwap
 const swapRoutes = [
@@ -89,7 +89,7 @@ app.post("/execute", async (req, res) => {
   // Wait for transaction receipt
   const receipt1 = await tx1.wait();
   const transactionHash1 = receipt1.transactionHash;
-  
+  console.log("Router address recieved",transactionHash1)
   
   
      
